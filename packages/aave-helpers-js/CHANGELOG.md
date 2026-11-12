@@ -1,0 +1,225 @@
+# @aave-dao/aave-helpers-js
+
+## 1.6.8
+
+### Patch Changes
+
+- b744fe2: update address book to 4.76.0, which adds the new Security Council addresses.
+
+## 1.6.7
+
+### Patch Changes
+
+- 734c955: Add PoolAddressesProvider events (PoolUpdated, PoolConfiguratorUpdated, PriceOracleUpdated, ACLManagerUpdated, ACLAdminUpdated, PriceOracleSentinelUpdated, PoolDataProviderUpdated, ProxyCreated, AddressSet, AddressSetAsProxy, MarketIdSet) from Ethereum 0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e to eventDb
+
+## 1.6.6
+
+### Patch Changes
+
+- ee1b877: Add StkGhoMigrator events (Paused, Unpaused, StkGhoMigrated) from Ethereum 0xC836143e39201698e7d543bCf21AfF3415aE4697 to eventDb
+
+## 1.6.5
+
+### Patch Changes
+
+- 28917e0: update address book to 4.73.0, which adds the AaveV4EtherFiOptimismWhitelabel (EtherFi Cash) instance.
+
+## 1.6.4
+
+### Patch Changes
+
+- 53cbdf8: update address book to 4.71.0, which adds the LlamaRisk PT risk oracle contracts on Plasma.
+- 62efe40: update address book to 4.72.1, which adds the AgentHub, RangeValidationModule and LlamaRisk PT risk oracle contracts on Monad.
+
+## 1.6.3
+
+### Patch Changes
+
+- ae5d70b: Add Aave V4 RiskSteward events (AddressRestricted, ConfigSet) from Base 0x577dD4c67d4c7278CdF3bC03aE9a391C4C72DB4f to eventDb
+
+## 1.6.2
+
+### Patch Changes
+
+- 041432c: update address book to 4.70.2, which replaces the Base V4 Risk Steward with the newly deployed version.
+
+## 1.6.1
+
+### Patch Changes
+
+- 5d1d2b9: update address book to 4.70.0, which adds the V4 Risk Steward and Risk Council addresses on Ethereum, Base, Avalanche and Arc.
+
+## 1.6.0
+
+### Minor Changes
+
+- 5175edf: Add the Base V4 bindings (`AaveV4PayloadBase`, `ProtocolV4TestBaseBase`) and update address book to 4.69.0. `_patchedDeal` now mints the Base B20 equities from their `MINT_ROLE` holder, since their balances live outside EVM storage and `deal` has no slot to patch, and `_safeSymbol` caps the gas it forwards so a token whose code the EVM cannot run does not starve the snapshot.
+
+## 1.5.2
+
+### Patch Changes
+
+- e3055ec: Update address-book to 4.68.1 and toolbox to 0.7.0 for Arc mainnet support.
+
+## 1.5.1
+
+### Patch Changes
+
+- e594e82: Add GSM events to eventDb (BuyAsset, SellAsset, Seized, BurnAfterSeize, BackingProvided, ExposureCapUpdated, FeeStrategyUpdated, FeesDistributedToTreasury, GhoReserveUpdated, GhoTreasuryUpdated, SwapFreeze, TokensRescued) so GSM transaction logs decode. Also adds the GhoReserve (EntityAdded, EntityRemoved, GhoLimitUpdated, GhoUsed, GhoRestored, GhoTransferred) and GsmRegistry (GsmAdded, GsmRemoved) events emitted alongside them.
+
+## 1.5.0
+
+### Minor Changes
+
+- 918ca30: Bump `@aave-dao/toolbox` to 0.6.1 for the latest chain list.
+
+## 1.4.2
+
+### Patch Changes
+
+- afde5f6: Decode additional Pool events (reserve state, liquidation grace period, flashloan premium, token upgrades) in protocol diffs.
+
+## 1.4.1
+
+### Patch Changes
+
+- 6c07642: Decode RiskSteward events in protocol diffs.
+
+## 1.4.0
+
+### Minor Changes
+
+- cd50b32: Add `_getTokenizationSpoke`, the reverting counterpart of `_findTokenizationSpoke`, and make `ERC1967_ADMIN_SLOT` private
+- f1c2c02: Add V4 payload presets (`V4EngineDefaults`, `V4RoleWiring`) and V4 test helpers (`_findTokenizationSpoke`, `_proxyAdminOwner`, `_assertRolesWired`, `_assertSpokeDeployment`); update address book to 4.62.1
+
+### Patch Changes
+
+- 59efe2a: update address book to 4.65.6
+- 59efe2a: Derive V4 tokenization test signers from a random key instead of a fixed `makeAddrAndKey` label, so `*WithSig` flows keep working when the well-known address picks up EIP-7702 code on a live network
+
+## 1.3.7
+
+### Patch Changes
+
+- 882f926: update address book to 4.61.1
+
+## 1.3.6
+
+### Patch Changes
+
+- 5d673a0: update address book to 4.61.0
+
+## 1.3.5
+
+### Patch Changes
+
+- 16aadc4: Add Umbrella RewardsController events
+
+## 1.3.4
+
+### Patch Changes
+
+- d740703: update address book
+
+## 1.3.3
+
+### Patch Changes
+
+- 5891290: add monad support
+
+## 1.3.2
+
+### Patch Changes
+
+- c825023: Add the `UpdateInterestRateData` event from `IAssetInterestRateStrategy` to eventDb, which was missed when the Aave V4 events were added.
+
+## 1.3.1
+
+### Patch Changes
+
+- 2c035ff: Add access manager roles and position managers sections to the Aave V4 snapshot diff, and expand spoke reserves coverage.
+
+## 1.3.0
+
+### Minor Changes
+
+- 11e2207: update to 3.7 e2e tests
+
+## 1.2.1
+
+### Patch Changes
+
+- b2eeeef: update aave-address-book
+
+## 1.2.0
+
+### Minor Changes
+
+- ed1dd75: Add Aave V4 contract events to eventDb (Hub, Spoke, TokenizationSpoke, AccessManager, HubConfigurator, SpokeConfigurator, ConfigEngine, NativeTokenGateway, SignatureGateway, Giver/Taker/Config PositionManagers, LiquidationLogic, SpokeOracle) so downstream consumers like the governance seatbelt can decode V4 transaction logs.
+
+## 1.1.0
+
+### Minor Changes
+
+- 5121107: Add Aave V4 snapshot diff support and CLI command
+
+## 1.0.14
+
+### Patch Changes
+
+- 6c96817: add robot events
+
+## 1.0.13
+
+### Patch Changes
+
+- 7638dc0: Revert partial decoding
+
+## 1.0.12
+
+### Patch Changes
+
+- 8510b30: update toolbox
+
+## 1.0.11
+
+### Patch Changes
+
+- 46cb536: Add new events from SwapSteward and Bridge
+
+## 1.0.10
+
+### Patch Changes
+
+- 53dca12: Added missing umbrella events
+
+## 1.0.9
+
+### Patch Changes
+
+- 39fe0f9: Add missing events
+
+## 1.0.8
+
+### Patch Changes
+
+- 95f11be: Added claude code skill
+- 6864719: Add IRangeValidationModule events (DefaultRangeConfigSet, MarketRangeConfigSet) to eventDb so that RANGE_VALIDATION_MODULE contract events are decoded in diff reports instead of showing raw topics. Also fixes a bug where formatValue crashed on decoded struct args containing BigInt values.
+
+## 1.0.7
+
+### Patch Changes
+
+- 8b830cf: Add IAgentConfigurator/IAgentHub event signatures to eventDb so that AgentHub contract events are decoded in diff reports instead of showing raw topics.
+
+## 1.0.4
+
+### Patch Changes
+
+- 207afc9: Replace address-book
+
+## 1.0.3
+
+### Patch Changes
+
+- ee3f583: Migrating to the dao
